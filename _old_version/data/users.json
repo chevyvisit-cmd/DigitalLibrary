@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "fullname": "Ali Valiyev",
+    "age": 20,
+    "phone": "998901111111"
+  },
+  {
+    "id": 2,
+    "fullname": "Vali Aliyev",
+    "age": 22,
+    "phone": "998902222222"
+  },
+  {
+    "id": 3,
+    "fullname": "Jasur Karimov",
+    "age": 19,
+    "phone": "998903333333"
+  },
+  {
+    "id": 4,
+    "fullname": "Sardor Xasanov",
+    "age": 24,
+    "phone": "998904444444"
+  },
+  {
+    "id": 5,
+    "fullname": "Bekzod Rahimov",
+    "age": 21,
+    "phone": "998905555555"
+  },
+  {
+    "id": 6,
+    "fullname": "Akbar Tursunov",
+    "age": 23,
+    "phone": "998906666666"
+  },
+  {
+    "id": 7,
+    "fullname": "Shaxzod Nurmatov",
+    "age": 20,
+    "phone": "998907777777"
+  },
+  {
+    "id": 8,
+    "fullname": "Dilshod Ergashev",
+    "age": 25,
+    "phone": "998908888888"
+  },
+  {
+    "id": 9,
+    "fullname": "Azizbek Qodirov",
+    "age": 18,
+    "phone": "998909999999"
+  },
+  {
+    "id": 10,
+    "fullname": "Jamshid Sobirov",
+    "age": 26,
+    "phone": "998900000000"
+  }
+]

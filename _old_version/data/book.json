@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "year": 2018,
+    "stock": 14,
+    "category": "Personal Development",
+    "description": "An easy and proven way to build good habits and break bad ones. James Clear reveals exactly how these microscopic changes can grow into life-altering outcomes.",
+    "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80"
+  },
+  {
+    "id": 2,
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "year": 2008,
+    "stock": 8,
+    "category": "Programming",
+    "description": "Even bad code can function. But if code isn't clean, it can bring a development organization to its knees. This book is a must-read for any software engineer.",
+    "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&q=80"
+  },
+  {
+    "id": 3,
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "year": 2020,
+    "stock": 12,
+    "category": "Finance",
+    "description": "Doing well with money isn't necessarily about what you know. It's about how you behave. And behavior is hard to teach, even to really smart people.",
+    "image": "https://images.unsplash.com/photo-1554224155-1696413565d3?w=800&q=80"
+  },
+  {
+    "id": 4,
+    "title": "Deep Work",
+    "author": "Cal Newport",
+    "year": 2016,
+    "stock": 10,
+    "category": "Personal Development",
+    "description": "Rules for focused success in a distracted world. Deep work is the ability to focus without distraction on a cognitively demanding task.",
+    "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80"
+  },
+  {
+    "id": 5,
+    "title": "You Don't Know JS Yet",
+    "author": "Kyle Simpson",
+    "year": 2020,
+    "stock": 20,
+    "category": "Programming",
+    "description": "The world-famous book series on JavaScript. Dive deep into the mechanics of the language and understand how it truly works under the hood.",
+    "image": "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&q=80"
+  },
+  {
+    "id": 6,
+    "title": "Thinking, Fast and Slow",
+    "author": "Daniel Kahneman",
+    "year": 2011,
+    "stock": 7,
+    "category": "Psychology",
+    "description": "The famous Nobel laureate Daniel Kahneman explores the two systems that drive the way we think — System 1 (fast, intuitive) and System 2 (slow, logical).",
+    "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&q=80"
+  },
+  {
+    "id": 7,
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt, David Thomas",
+    "year": 1999,
+    "stock": 5,
+    "category": "Programming",
+    "description": "Your journey to mastery. One of the most significant books in the field of software development, updated for the 20th anniversary.",
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80"
+  },
+  {
+    "id": 8,
+    "title": "Start with Why",
+    "author": "Simon Sinek",
+    "year": 2009,
+    "stock": 11,
+    "category": "Business",
+    "description": "How great leaders inspire everyone to take action. Simon Sinek explores the concept of the 'Golden Circle' and why some organizations are more innovative.",
+    "image": "https://images.unsplash.com/photo-1528901166007-3784c7ef3f06?w=800&q=80"
+  },
+  {
+    "id": 9,
+    "title": "Zero to One",
+    "author": "Peter Thiel",
+    "year": 2014,
+    "stock": 9,
+    "category": "Business",
+    "description": "Notes on startups, or how to build the future. Peter Thiel explores how to create things that are truly new and transition from 0 to 1.",
+    "image": "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=800&q=80"
+  },
+  {
+    "id": 10,
+    "title": "The Lean Startup",
+    "author": "Eric Ries",
+    "year": 2011,
+    "stock": 14,
+    "category": "Business",
+    "description": "How today's entrepreneurs use continuous innovation to create radically successful businesses. The foundation of modern startup methodology.",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+  },
+  {
+    "id": 11,
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "year": 2011,
+    "stock": 18,
+    "category": "History",
+    "description": "A brief history of humankind. Harari surveys the history of humankind from the evolution of archaic human species in the Stone Age up to the twenty-first century.",
+    "image": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800&q=80"
+  },
+  {
+    "id": 12,
+    "title": "Refactoring",
+    "author": "Martin Fowler",
+    "year": 2018,
+    "stock": 6,
+    "category": "Programming",
+    "description": "Improving the design of existing code. A comprehensive guide to refactoring patterns and techniques for better software maintainability.",
+    "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&q=80"
+  }
+]

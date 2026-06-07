@@ -1,0 +1,124 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  password      String
+  image         String?
+  phoneNumber   String?
+  streakCount   Int       @default(0)
+  lastActiveAt  DateTime? @default(now())
+  totalHours    Float     @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  progress      ReadingProgress[]
+  favorites     Favorite[]
+  bookmarks     Bookmark[]
+  notifications Notification[]
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  type      String   @default("info") // info, success, warning
+  createdAt DateTime @default(now())
+  
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Category {
+  id    String @id @default(cuid())
+  name  String @unique
+  books Book[]
+}
+
+model Book {
+  id          String   @id @default(cuid())
+  title       String
+  author      String
+  description String
+  coverImage  String
+  rating      Float    @default(0)
+  totalPages  Int
+  readTime    String
+  
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+  
+  chapters    Chapter[]
+  progress    ReadingProgress[]
+  favorites   Favorite[]
+  bookmarks   Bookmark[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Chapter {
+  id        String   @id @default(cuid())
+  title     String
+  content   String   // Large text storage
+  order     Int
+  
+  bookId    String
+  book      Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  
+  bookmarks Bookmark[]
+}
+
+model ReadingProgress {
+  id            String   @id @default(cuid())
+  userId        String
+  bookId        String
+  percentage    Float    @default(0)
+  lastChapterId String?
+  
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book          Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  
+  updatedAt     DateTime @updatedAt
+
+  @@unique([userId, bookId])
+}
+
+model Favorite {
+  id      String @id @default(cuid())
+  userId  String
+  bookId  String
+  
+  user    User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book    Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, bookId])
+}
+
+model Bookmark {
+  id          String   @id @default(cuid())
+  userId      String
+  bookId      String
+  chapterId   String
+  textSnippet String?
+  note        String?
+  pageNumber  Int?
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book        Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  chapter     Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  
+  createdAt   DateTime @default(now())
+}

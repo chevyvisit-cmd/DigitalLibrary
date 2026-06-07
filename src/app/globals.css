@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff6b00;
+  --color-secondary: #00f2ff;
+  --color-accent: #7000ff;
+  --color-dark-bg: #050505;
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+:root {
+  --background: #050505;
+  --foreground: #ffffff;
+  --primary: #ff6b00;
+  --secondary: #00f2ff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+  
+  .neon-border {
+    @apply border-primary/50 shadow-[0_0_15px_rgba(255,107,0,0.3)];
+  }
+
+  .neon-text-orange {
+    @apply text-primary drop-shadow-[0_0_8px_rgba(255,107,0,0.5)];
+  }
+
+  .neon-text-cyan {
+    @apply text-secondary drop-shadow-[0_0_8px_rgba(0,242,255,0.5)];
+  }
+
+  .paper-texture {
+    background-color: #fdfbf7;
+    background-image: url("https://www.transparenttextures.com/patterns/felt.png");
+    color: #1a1a1a;
+  }
+}
+
+@layer utilities {
+  .animate-rgb-text {
+    @apply transition-all duration-300 ease-out text-white;
+    display: inline-block;
+  }
+
+  .animate-rgb-text {
+    @apply transition-all text-white;
+    transition-duration: 1500ms;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    background: linear-gradient(
+      45deg,
+      #00f2ff, 
+      #7000ff, 
+      #ff00ff, 
+      #ffffff, 
+      #00f2ff
+    );
+    background-size: 400% 400%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    display: inline-block;
+  }
+
+  .animate-rgb-text:hover {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: 
+      aura-flow 15s ease-in-out infinite,
+      organic-breathe 4s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.2)) saturate(1.5);
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes aura-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes organic-breathe {
+  from { 
+    transform: scale(1) translateY(0);
+    filter: brightness(1) blur(0px);
+  }
+  to { 
+    transform: scale(1.08) translateY(-1.5px);
+    filter: brightness(1.2) blur(0.5px);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6b00;
+}
