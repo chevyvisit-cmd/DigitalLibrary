@@ -22,6 +22,11 @@ const BookCard = ({ book }: { book: Book }) => {
   const { data: session } = useSession();
   const [isFavorite, setIsFavorite] = useState(false);
   const [loadingFavorite, setLoadingFavorite] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
+
+  useEffect(() => {
+    setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -29,8 +34,9 @@ const BookCard = ({ book }: { book: Book }) => {
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+  // Disable rotation on touch devices for better UX
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], isTouch ? ["0deg", "0deg"] : ["17.5deg", "-17.5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], isTouch ? ["0deg", "0deg"] : ["-17.5deg", "17.5deg"]);
 
   const checkFavorite = async () => {
     try {
@@ -97,7 +103,7 @@ const BookCard = ({ book }: { book: Book }) => {
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className="relative h-[450px] w-full rounded-2xl bg-white/5 border border-white/10 group cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-[0_20px_40px_rgba(255,107,0,0.2)]"
+      className="relative h-[450px] w-full rounded-2xl bg-white/5 border border-white/10 group cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-[0_20px_40px_rgba(34, 197, 94, 0.2)]"
     >
       <div
         style={{
@@ -117,7 +123,7 @@ const BookCard = ({ book }: { book: Book }) => {
               <motion.button 
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="bg-primary p-4 rounded-full shadow-[0_0_20px_rgba(255,107,0,0.5)]"
+                className="bg-primary p-4 rounded-full shadow-[0_0_20px_rgba(34, 197, 94, 0.5)]"
               >
                 <Play className="w-6 h-6 text-white fill-white" />
               </motion.button>

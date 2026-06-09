@@ -38,6 +38,7 @@ async function main() {
   const fiction = await prisma.category.create({ data: { name: 'Badiiy Adabiyot' } });
   const classic = await prisma.category.create({ data: { name: 'Klassika' } });
   const manga = await prisma.category.create({ data: { name: 'Manga' } });
+  const articles = await prisma.category.create({ data: { name: 'Maqolalar' } });
 
   // --- KLASSIKA ---
 
@@ -262,9 +263,155 @@ async function main() {
                 <img src="https://static.wikia.nocookie.net/attackontitan/images/c/c5/Colossal_Titan_looming_over_Shiganshina.jpg" alt="Colossal Titan" class="rounded-lg shadow-xl mx-auto border-4 border-primary/20" />
                 <p>To'satdan, 60 metrlik "Ulkan Titan" (Colossal Titan) paydo bo'ladi va devorni buzib tashlaydi. Shiganshina shahriga titanlar bostirib kiradi.</p>
                 <img src="https://static.wikia.nocookie.net/attackontitan/images/4/4e/Smiling_Titan_kills_Carla.png" alt="Smiling Titan kills Carla" class="rounded-lg shadow-xl mx-auto border-4 border-primary/20" />
-                <p>Hujum paytida Erenning onasi xarobalar ostida qolib ketadi va ko'z o'ngida Titan tomonidan yeb yuboriladi. Eren barcha titanlarni yo'q qilishga qasam ichadi.</p>
+                <p>Hujum paytida Erenning onasi xarobalar ostida qolib ketadi va ko'z o'ngida Titan tomonidan yeb yuboriladi. Eren balla titanlarni yo'q qilishga qasam ichadi.</p>
               </div>
             ` 
+          }
+        ]
+      }
+    }
+  });
+
+  await prisma.book.create({
+    data: {
+      title: 'One Piece',
+      author: 'Eiichiro Oda',
+      description: 'Monkey D. Luffy o\'zining qaroqchilar jamoasi bilan afsonaviy xazina - One Piece-ni topish va Qaroqchilar Qiroli bo\'lish uchun sarguzashtga otlanadi.',
+      coverImage: 'https://m.media-amazon.com/images/M/MV5BMTNjNGU4NDgtZTdkMi00OTM1LWEzMzktOTdkMjUzYjFjYTkxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',
+      rating: 5.0,
+      totalPages: 1100,
+      readTime: '100h 00m',
+      categoryId: manga.id,
+      chapters: {
+        create: [
+          {
+            title: '1-bob: Sarguzasht tongi',
+            order: 1,
+            content: `
+              <div class="space-y-6">
+                <p>Luffy yoshligida "Shanks" ismli qaroqchidan ilhomlanib, dengizga chiqishga qaror qiladi. U tasodifan "Gomu Gomu no Mi" mevasini yeb qo'yadi va rezina odamga aylanadi.</p>
+                <img src="https://static.wikia.nocookie.net/onepiece/images/a/a1/Luffy_Eating_Gomu_Gomu_no_Mi.png" alt="Luffy Eating Fruit" class="rounded-lg shadow-xl mx-auto border-4 border-primary/20" />
+                <p>Shanks o'zining chap qo'lini Luffyning hayotini saqlab qolish uchun qurbon qiladi. Ketayotib, u o'zining qadrli somon qalpoqchasini Luffyga ishonib topshiradi.</p>
+              </div>
+            `
+          }
+        ]
+      }
+    }
+  });
+
+  await prisma.book.create({
+    data: {
+      title: 'Demon Slayer',
+      author: 'Koyoharu Gotouge',
+      description: 'Tanjiro Kamado oilasi o\'ldirilgandan va singlisi Nezuko iblisga aylangandan so\'ng, uni yana insonga aylantirish yo\'lini izlab Iblis Ovchisiga aylanadi.',
+      coverImage: 'https://m.media-amazon.com/images/M/MV5BZjZjNzI5MDctY2YyZC00NmM0LThlYWQtZDRkODdkYmY3N2FhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',
+      rating: 4.9,
+      totalPages: 205,
+      readTime: '20h 00m',
+      categoryId: manga.id,
+      chapters: {
+        create: [
+          {
+            title: '1-bob: Shafqatsizlik',
+            order: 1,
+            content: `
+              <div class="space-y-6">
+                <p>Tanjiro uydan uzoqda bo'lganida uning oilasiga iblislar hujum qiladi. Faqat Nezuko tirik qoladi, lekin u ham iblisga aylangan edi.</p>
+                <img src="https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/b/b3/Tanjiro_and_Nezuko_first_meeting_with_Giyu.png" alt="Tanjiro and Nezuko" class="rounded-lg shadow-xl mx-auto border-4 border-primary/20" />
+                <p>Ular Giyu Tomioka ismli Iblis Ovchisi bilan to'qnash kelishadi. Giyu Nezukoning Tanjironi himoya qilayotganini ko'rib, ularga yordam berishga qaror qiladi.</p>
+              </div>
+            `
+          }
+        ]
+      }
+    }
+  });
+
+  await prisma.book.create({
+    data: {
+      title: 'Berserk',
+      author: 'Kentaro Miura',
+      description: 'Guts ismli yollanma jangchining qorong\'u va shafqatsiz dunyodagi sarguzashtlari. U o\'zining sobiq do\'sti Griffithdan qasos olishga intiladi.',
+      coverImage: 'https://m.media-amazon.com/images/M/MV5BNDXhY2VjYjEtZDUxMi00MWRhLTk1NjYtY2Q1NGRjM2ZlYjhiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',
+      rating: 5.0,
+      totalPages: 364,
+      readTime: '50h 00m',
+      categoryId: manga.id,
+      chapters: {
+        create: [
+          {
+            title: '1-bob: Qora Qilichboz',
+            order: 1,
+            content: `
+              <div class="space-y-6">
+                <p>Guts dunyo bo'ylab sarguzashtga otlanadi, u o'zining ulkan qilichi "Dragonslayer" bilan iblislarga qarshi kurashadi.</p>
+                <img src="https://static.wikia.nocookie.net/berserk/images/c/c8/Guts_Black_Swordsman.png" alt="Guts" class="rounded-lg shadow-xl mx-auto border-4 border-primary/20" />
+                <p>Uning tanasida "Qurbonlik tamg'asi" bor bo'lib, bu uni tunu-kun iblislar uchun o'ljaga aylantiradi.</p>
+              </div>
+            `
+          }
+        ]
+      }
+    }
+  });
+
+  // --- MAQOLALAR ---
+
+  await prisma.book.create({
+    data: {
+      title: 'Kitob o\'qishning 10 ta foydasi',
+      author: 'Admin',
+      description: 'Nima uchun har kuni kitob o\'qish kerakligi haqida qisqacha maqola.',
+      coverImage: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1000&auto=format&fit=crop',
+      rating: 5.0,
+      totalPages: 5,
+      readTime: '10m',
+      categoryId: articles.id,
+      chapters: {
+        create: [
+          {
+            title: 'Asosiy qism',
+            order: 1,
+            content: `
+              <div class="space-y-4">
+                <h2 class="text-xl font-bold">1. Miya faoliyatini yaxshilaydi</h2>
+                <p>Kitob o'qish miyani doimiy ravishda mashq qildiradi va uning sog'lom qolishiga yordam beradi.</p>
+                <h2 class="text-xl font-bold">2. Stressni kamaytiradi</h2>
+                <p>Yaxshi asar mutolaasi sizni kundalik muammolardan chalg'itadi va xotirjamlik baxsh etadi.</p>
+              </div>
+            `
+          }
+        ]
+      }
+    }
+  });
+
+  await prisma.book.create({
+    data: {
+      title: 'Vaqtni to\'g\'ri boshqarish sirlari',
+      author: 'Admin',
+      description: 'Samaradorlikni oshirish uchun vaqtdan unumli foydalanish usullari.',
+      coverImage: 'https://images.unsplash.com/photo-1506784919141-93503d40a97c?q=80&w=1000&auto=format&fit=crop',
+      rating: 4.8,
+      totalPages: 8,
+      readTime: '15m',
+      categoryId: articles.id,
+      chapters: {
+        create: [
+          {
+            title: 'Vaqt boshqaruvi',
+            order: 1,
+            content: `
+              <div class="space-y-4">
+                <p>Vaqt - bizning eng qimmatli resursimiz. Uni to'g'ri taqsimlash muvaffaqiyat garovidir.</p>
+                <ul>
+                  <li>Muhim ishlarni birinchi bajaring</li>
+                  <li>Chalg'ituvchi omillarni yo'qoting</li>
+                  <li>Dam olishni ham unutmang</li>
+                </ul>
+              </div>
+            `
           }
         ]
       }

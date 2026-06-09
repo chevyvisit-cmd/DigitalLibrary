@@ -86,7 +86,7 @@ const StatsGrid = () => {
   const stats = [
     { label: 'Books Finished', value: data.completedBooks.toString(), icon: BookOpen, color: 'text-primary', progress: 100 },
     { label: 'Reading Hours', value: `${data.readingHours}h`, icon: Clock, color: 'text-secondary', progress: 100 },
-    { label: 'Current Streak', value: `${data.streak} Days`, icon: Flame, color: 'text-orange-400', progress: 100 },
+    { label: 'Current Streak', value: `${data.streak} Days`, icon: Flame, color: 'text-primary', progress: 100 },
     { label: 'Active Books', value: data.activeBooks.toString(), icon: Award, color: 'text-accent', progress: 100 },
   ];
 

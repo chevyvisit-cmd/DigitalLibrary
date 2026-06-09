@@ -51,32 +51,32 @@ function CatalogContent() {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div className="min-h-screen pt-28 pb-12 px-6 bg-[#050505]">
+    <div className="min-h-screen pt-28 pb-12 px-6">
       <Header />
       
       <main className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
-          <div>
-            <h1 className="text-4xl lg:text-6xl font-black text-white tracking-tighter">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-8 md:mb-12">
+          <div className="space-y-2 md:space-y-4">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-black text-white tracking-tighter">
               The <span className="text-primary">Catalog</span>
             </h1>
-            <p className="mt-4 text-white/40 max-w-md">
+            <p className="text-sm md:text-base text-white/40 max-w-md">
               Dive into our extensive library of premium digital content. Filter by category to find your next great read.
             </p>
           </div>
           
-          <div className="flex items-center gap-4">
-            <div className="relative">
+          <div className="flex items-center gap-3 md:gap-4">
+            <div className="relative flex-1 md:flex-none">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
               <input
                 type="text"
                 placeholder="Search catalog..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-white/5 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-sm focus:outline-none focus:border-primary/50 w-full md:w-64 text-white"
+                className="bg-white/5 border border-white/10 rounded-xl py-2.5 md:py-3 pl-10 pr-4 text-sm focus:outline-none focus:border-primary/50 w-full md:w-64 text-white transition-all"
               />
             </div>
-            <button className="p-3 bg-white/5 border border-white/10 rounded-xl text-white/60 hover:text-white transition-colors">
+            <button className="p-2.5 md:p-3 bg-white/5 border border-white/10 rounded-xl text-white/60 hover:text-white transition-colors shrink-0">
               <SlidersHorizontal className="w-5 h-5" />
             </button>
           </div>
@@ -130,7 +130,7 @@ function CatalogContent() {
 
 export default function Catalog() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#050505] flex items-center justify-center text-white">Loading Catalog...</div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-white">Loading Catalog...</div>}>
       <CatalogContent />
     </Suspense>
   );
