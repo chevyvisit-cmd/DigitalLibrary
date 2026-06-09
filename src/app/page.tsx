@@ -12,11 +12,23 @@ import AuthGateway from '@/components/auth/AuthGateway';
 import Link from 'next/link';
 
 export default function Dashboard() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   
   useEffect(() => {
-    console.log("DIGITAL LIBRARY V2.2 LOADED");
+    // Check if user was already authenticated in this session
+    const savedAuth = sessionStorage.getItem('lib_auth');
+    if (savedAuth === 'true') {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+    console.log("DIGITAL LIBRARY V2.3-ULTRA LOADED");
   }, []);
+
+  const handleAuthenticated = () => {
+    sessionStorage.setItem('lib_auth', 'true');
+    setIsAuthenticated(true);
+  };
 
   const [featuredBooks, setFeaturedBooks] = useState<any[]>([]);
   const [recentReads, setRecentReads] = useState<any[]>([]);
