@@ -45,6 +45,9 @@ const AuthGateway: React.FC<AuthGatewayProps> = ({ onAuthenticated }) => {
             : 'bg-black/5 border-black/10'
         }`}
       >
+        <div className="absolute top-0 left-0 right-0 py-1 bg-primary text-white text-[8px] font-bold text-center tracking-[0.2em] uppercase">
+          System Update v2.3-Ultra Live
+        </div>
         {/* Glow Effect */}
         <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/20 rounded-full blur-[80px]" />
         

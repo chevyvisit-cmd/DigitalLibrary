@@ -88,7 +88,10 @@ const Hero: React.FC<HeroProps> = ({ featuredBook }) => {
 
           {/* Main Heading */}
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tighter text-[#22c55e] flex flex-wrap gap-x-[0.3em]">
+            <h1 
+              style={{ color: '#22c55e' }}
+              className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tighter flex flex-wrap gap-x-[0.3em]"
+            >
               {headingWords.map((word, wordIndex) => (
                 <motion.span
                   key={wordIndex}
@@ -106,7 +109,7 @@ const Hero: React.FC<HeroProps> = ({ featuredBook }) => {
                 </motion.span>
               ))}
             </h1>
-            <p className="text-[10px] text-[#22c55e]/30 font-mono">v2.2-stable</p>
+            <p className="text-[10px] text-[#22c55e] font-mono font-bold bg-[#22c55e]/10 px-2 py-1 rounded inline-block">DEPLOYED VERSION: 2.3-ULTRA</p>
             <motion.p
               variants={itemVariants}
               className="text-lg md:text-xl text-[var(--foreground)]/60 leading-relaxed max-w-xl"
