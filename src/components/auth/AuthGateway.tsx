@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Lock, User, ArrowRight, Github, Chrome } from 'lucide-react';
+import { Mail, Lock, User, ArrowRight, Github, Chrome, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../layout/ThemeProvider';
 
 interface AuthGatewayProps {
@@ -11,7 +11,7 @@ interface AuthGatewayProps {
 
 const AuthGateway: React.FC<AuthGatewayProps> = ({ onAuthenticated }) => {
   const [isLogin, setIsLogin] = useState(true);
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,6 +21,20 @@ const AuthGateway: React.FC<AuthGatewayProps> = ({ onAuthenticated }) => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+      {/* Theme Switcher in Auth Wall */}
+      <div className="absolute top-8 right-8 z-[110]">
+        <button
+          onClick={toggleTheme}
+          className={`p-3 rounded-2xl border backdrop-blur-xl transition-all ${
+            theme === 'tun'
+              ? 'bg-white/5 border-white/10 text-white hover:bg-white/10'
+              : 'bg-black/5 border-black/10 text-zinc-900 hover:bg-black/10'
+          }`}
+        >
+          {theme === 'tun' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+        </button>
+      </div>
+
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
