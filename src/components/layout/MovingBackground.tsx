@@ -85,7 +85,7 @@ const MovingBackground: React.FC = () => {
       draw() {
         if (!ctx) return;
         const color = theme === 'tun' ? '34, 197, 94' : '16, 185, 129';
-        ctx.fillStyle = `rgba(${color}, 0.6)`;
+        ctx.fillStyle = theme === 'tun' ? `rgba(${color}, 0.6)` : `rgba(${color}, 0.8)`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -103,16 +103,14 @@ const MovingBackground: React.FC = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw Matrix-like flow in background
-      if (theme === 'tun') {
-        ctx.strokeStyle = 'rgba(34, 197, 94, 0.02)';
-        ctx.lineWidth = 0.5;
-        for (let i = 0; i < canvas.width; i += 100) {
-          ctx.beginPath();
-          ctx.moveTo(i, 0);
-          ctx.lineTo(i + Math.sin(Date.now() * 0.001) * 20, canvas.height);
-          ctx.stroke();
-        }
+      // Draw Matrix-like flow in background (Visible in both modes)
+      ctx.strokeStyle = theme === 'tun' ? 'rgba(34, 197, 94, 0.02)' : 'rgba(16, 185, 129, 0.08)';
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < canvas.width; i += 100) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i + Math.sin(Date.now() * 0.001) * 20, canvas.height);
+        ctx.stroke();
       }
 
       particles.forEach((particle) => {
@@ -130,7 +128,9 @@ const MovingBackground: React.FC = () => {
           if (distance < 150) {
             const color = theme === 'tun' ? '34, 197, 94' : '16, 185, 129';
             const opacity = 1 - distance / 150;
-            ctx.strokeStyle = `rgba(${color}, ${opacity * 0.15})`;
+            ctx.strokeStyle = theme === 'tun' 
+              ? `rgba(${color}, ${opacity * 0.15})`
+              : `rgba(${color}, ${opacity * 0.3})`;
             ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -148,7 +148,9 @@ const MovingBackground: React.FC = () => {
           if (distMouse < 200) {
             const color = theme === 'tun' ? '34, 197, 94' : '16, 185, 129';
             const opacity = 1 - distMouse / 200;
-            ctx.strokeStyle = `rgba(${color}, ${opacity * 0.3})`;
+            ctx.strokeStyle = theme === 'tun'
+              ? `rgba(${color}, ${opacity * 0.3})`
+              : `rgba(${color}, ${opacity * 0.5})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -191,7 +193,7 @@ const MovingBackground: React.FC = () => {
       ref={canvasRef}
       className="fixed inset-0 -z-20 pointer-events-none transition-opacity duration-1000"
       style={{ 
-        opacity: theme === 'tun' ? 0.8 : 0.4,
+        opacity: theme === 'tun' ? 0.8 : 0.8, // Unified opacity for visibility
         background: theme === 'tun' ? '#060608' : '#fafafa'
       }}
     />
