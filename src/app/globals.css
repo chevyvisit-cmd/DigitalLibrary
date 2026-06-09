@@ -107,7 +107,7 @@ body {
 @layer utilities {
   .animate-rgb-text {
     @apply transition-all duration-300 ease-out;
-    color: var(--foreground);
+    color: inherit;
     display: inline-block;
   }
 
