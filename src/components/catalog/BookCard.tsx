@@ -103,7 +103,7 @@ const BookCard = ({ book }: { book: Book }) => {
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className="relative h-[450px] w-full rounded-2xl bg-white/5 border border-white/10 group cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-[0_20px_40px_rgba(34, 197, 94, 0.2)]"
+      className="relative h-[450px] w-full rounded-2xl bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 group cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-[0_20px_40px_rgba(34, 197, 94, 0.2)]"
     >
       <div
         style={{
@@ -148,17 +148,17 @@ const BookCard = ({ book }: { book: Book }) => {
 
         <div className="mt-4 flex flex-col gap-1">
           <span className="text-[10px] font-bold text-primary uppercase tracking-widest">{book.category.name}</span>
-          <h3 className="text-lg font-bold text-white line-clamp-1 group-hover:text-primary transition-colors">
+          <h3 className="text-lg font-bold text-neutral-900 dark:text-white line-clamp-1 group-hover:text-primary transition-colors">
             {book.title}
           </h3>
-          <p className="text-sm text-white/40">{book.author}</p>
+          <p className="text-sm text-neutral-600 dark:text-white/40">{book.author}</p>
           
           <div className="mt-auto pt-4 flex items-center justify-between">
-            <div className="flex items-center gap-2 text-white/40">
+            <div className="flex items-center gap-2 text-neutral-500 dark:text-white/40">
               <Clock className="w-4 h-4" />
               <span className="text-xs font-medium">{book.pages} pages</span>
             </div>
-            <Link href={`/reader/${book.id}`} className="text-xs font-bold text-white group-hover:text-primary transition-colors underline underline-offset-4 decoration-primary/30">
+            <Link href={`/reader/${book.id}`} className="text-xs font-bold text-neutral-900 dark:text-white group-hover:text-primary transition-colors underline underline-offset-4 decoration-primary/30">
               READ NOW
             </Link>
           </div>
