@@ -88,14 +88,21 @@ const Hero: React.FC<HeroProps> = ({ featuredBook }) => {
 
           {/* Main Heading */}
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tighter text-[var(--foreground)]">
-              {headingWords.map((word, i) => (
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tighter text-primary flex flex-wrap gap-x-[0.3em]">
+              {headingWords.map((word, wordIndex) => (
                 <motion.span
-                  key={i}
+                  key={wordIndex}
                   variants={itemVariants}
-                  className="inline-block mr-[0.3em] last:mr-0"
+                  className="inline-block whitespace-nowrap"
                 >
-                  {word}
+                  {word.split('').map((char, charIndex) => (
+                    <span 
+                      key={charIndex} 
+                      className="animate-rgb-text hover:z-10 relative inline-block origin-bottom"
+                    >
+                      {char}
+                    </span>
+                  ))}
                 </motion.span>
               ))}
             </h1>
