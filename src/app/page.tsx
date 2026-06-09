@@ -13,6 +13,11 @@ import Link from 'next/link';
 
 export default function Dashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  
+  useEffect(() => {
+    console.log("DIGITAL LIBRARY V2.2 LOADED");
+  }, []);
+
   const [featuredBooks, setFeaturedBooks] = useState<any[]>([]);
   const [recentReads, setRecentReads] = useState<any[]>([]);
   const [currentBookIndex, setCurrentBookIndex] = useState(0);
