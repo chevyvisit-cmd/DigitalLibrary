@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Lock, User, ArrowRight, Github, Chrome, Sun, Moon } from 'lucide-react';
+import { Mail, Lock, User, ArrowRight, Sun, Moon, Globe, Layout } from 'lucide-react';
 import { useTheme } from '../layout/ThemeProvider';
 
 interface AuthGatewayProps {
@@ -161,12 +161,12 @@ const AuthGateway: React.FC<AuthGatewayProps> = ({ onAuthenticated }) => {
               <button className={`flex-1 py-3 rounded-xl border flex items-center justify-center gap-2 transition-all ${
                 theme === 'tun' ? 'border-white/10 hover:bg-white/5 text-white' : 'border-black/10 hover:bg-black/5 text-zinc-900'
               }`}>
-                <Github className="w-5 h-5" /> <span className="text-xs font-bold">GitHub</span>
+                <Layout className="w-5 h-5" /> <span className="text-xs font-bold">Lokal</span>
               </button>
               <button className={`flex-1 py-3 rounded-xl border flex items-center justify-center gap-2 transition-all ${
                 theme === 'tun' ? 'border-white/10 hover:bg-white/5 text-white' : 'border-black/10 hover:bg-black/5 text-zinc-900'
               }`}>
-                <Chrome className="w-5 h-5" /> <span className="text-xs font-bold">Google</span>
+                <Globe className="w-5 h-5" /> <span className="text-xs font-bold">Google</span>
               </button>
             </div>
           </div>
