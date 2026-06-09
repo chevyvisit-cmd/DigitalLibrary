@@ -58,7 +58,7 @@ const Hero: React.FC<HeroProps> = ({ featuredBook }) => {
   const headingWords = ["Bilimingizni", "Mukammal", "Va", "Zamonaviy", "Shaklda", "Boyiting."];
 
   return (
-    <section className="relative w-full min-h-[80vh] flex items-center pt-20 px-6 overflow-hidden">
+    <section className="relative w-full min-h-[90vh] flex items-center pt-32 md:pt-40 pb-20 px-6 overflow-hidden">
       {/* Ambient Glows */}
       <div className="absolute top-1/4 -left-20 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
