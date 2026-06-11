@@ -96,8 +96,11 @@ const BookCard = ({ book }: { book: Book }) => {
     <motion.div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -8 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      viewport={{ once: true }}
       style={{
         rotateY,
         rotateX,

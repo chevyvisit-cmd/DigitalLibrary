@@ -50,7 +50,7 @@ export default function LoginPage() {
           <div className="p-4 bg-primary rounded-[2rem] shadow-[0_0_30px_rgba(255,107,0,0.4)] mb-6">
             <Library className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-3xl font-black text-white tracking-tighter">Welcome Back</h1>
+          <h1 className="text-3xl font-black text-themed tracking-tighter">Welcome Back</h1>
           <p className="text-white/40 mt-2">Kutubxonaga kirish uchun ma'lumotlarni kiriting</p>
         </div>
 
